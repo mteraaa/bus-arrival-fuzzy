@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus Arrival Predictor</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h1>Bus Arrival Predictor</h1>
+      <p class="sub">
+        Davao Metro Shuttle &middot; Ormoc &harr; Sogod &middot;
+      </p>
+
+      <form id="form" novalidate>
+        <div class="field">
+          <label for="destination">Destination</label>
+          <select id="destination">
+            <option value="Sogod">Sogod (bus starts at Ormoc)</option>
+            <option value="Ormoc">Ormoc (bus starts at Sogod)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="location" id="locationLabel"
+            >Current location (km from Ormoc terminal)</label
+          >
+          <input
+            id="location"
+            type="number"
+            min="0"
+            max="125"
+            step="0.1"
+            placeholder="0 – 125"
+          />
+          <div class="error" id="locationError"></div>
+        </div>
+
+        <div class="field">
+          <label for="time">Current time</label>
+          <input id="time" type="time" />
+          <div class="error" id="timeError"></div>
+        </div>
+
+        <button type="submit">Predict</button>
+      </form>
+
+      <div id="output">
+        <noscript
+          ><p style="color: #b3261e">
+            JavaScript is turned off or blocked, so the predictor cannot run.
+            Open this file in Chrome, Edge or Firefox.
+          </p></noscript
+        >
+      </div>
+    </div>
+
+    <script src="js/FuzzyLogic.js"></script>
+    <script src="js/FuzzySet.js"></script>
+    <script src="js/BusSchedule.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
